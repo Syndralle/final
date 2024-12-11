@@ -90,30 +90,32 @@ if __name__ == "__main__":
     stitcher = ImageStitcher()
     
     # 设置网格布局（5 行 3 列），并设置间距
-    stitcher.set(h=6, w=7, horizontal_spacing=10, vertical_spacing=10)
+    stitcher.set(h=5, w=7, horizontal_spacing=10, vertical_spacing=10)
 
     # 指定图片路径
-    # image_folder = "images_folder"  # 替换为你的图片文件夹路径
+    # image_folder = "."  # 替换为你的图片文件夹路径
     # image_files = [os.path.join(image_folder, f) for f in os.listdir(image_folder) if f.endswith((".png", ".jpg"))]
-    # image_files = ["./origin/001250.png", "./mask/001250.png", "./faster/001250.png", "./ssd/001250.png", "./v5/001250.png", "./v8/001250.png", "./v8-improve/001250.png",
-    #                "./origin/000623.png", "./mask/000623.png", "./faster/000623.png", "./ssd/000623.png", "./v5/000623.png", "./v8/000623.png", "./v8-improve/000623.png",
-    #                "./origin/000672.png", "./mask/000672.png", "./faster/000672.png", "./ssd/000672.png", "./v5/000672.png", "./v8/000672.png", "./v8-improve/000672.png",
-    #                "./origin/000600.png", "./mask/000600.png", "./faster/000600.png", "./ssd/000600.png", "./v5/000600.png", "./v8/000600.png", "./v8-improve/000600.png",
-    #                "./origin/000527.png", "./mask/000527.png", "./faster/000527.png", "./ssd/000527.png", "./v5/000527.png", "./v8/000527.png", "./v8-improve/000527.png",
-    #               ]
-    mask_dir_path = "/home/syndra/dataset/NUDT-SIRST/masks/"
-    origin_dir_path = "/home/syndra/dataset/NUDT-SIRST/dataset/test/images/"
-    result_path = "./box_result/"
-    image_files = [
-        origin_dir_path + "000613.png", mask_dir_path + "000613.png", result_path + "faster000613.png", result_path + "ssd000613.png", result_path + "v5000613.png", result_path + "v8000613.png", result_path + "our000613.png",
-        origin_dir_path + "001298.png", mask_dir_path + "001298.png", result_path + "faster001298.png", result_path + "ssd001298.png", result_path + "v5001298.png", result_path + "v8001298.png", result_path + "our001298.png",
-        origin_dir_path + "001292.png", mask_dir_path + "001292.png", result_path + "faster001292.png", result_path + "ssd001292.png", result_path + "v5001292.png", result_path + "v8001292.png", result_path + "our001292.png",
-        origin_dir_path + "001280.png", mask_dir_path + "001280.png", result_path + "faster001280.png", result_path + "ssd001280.png", result_path + "v5001280.png", result_path + "v8001280.png", result_path + "our001280.png",
-        origin_dir_path + "001250.png", mask_dir_path + "001250.png", result_path + "faster001250.png", result_path + "ssd001250.png", result_path + "v5001250.png", result_path + "v8001250.png", result_path + "our001250.png",
-        origin_dir_path + "000489.png", mask_dir_path + "000489.png", result_path + "faster000489.png", result_path + "ssd000489.png", result_path + "v5000489.png", result_path + "v8000489.png", result_path + "our000489.png",
-    ]
-    # 添加文本
-    text_labels = ["Baseline", "Ground Truth", "Faster-Rcnn", "SSD", "Yolov5s", "Yolov8s", "Our Method"]
+    image_files = ["./origin/001250.png", "./mask/001250.png", "./faster/001250.png", "./ssd/001250.png", "./v5/001250.png", "./v8/001250.png", "./v8-improve/001250.png",
+                   "./origin/000623.png", "./mask/000623.png", "./faster/000623.png", "./ssd/000623.png", "./v5/000623.png", "./v8/000623.png", "./v8-improve/000623.png",
+                   "./origin/000672.png", "./mask/000672.png", "./faster/000672.png", "./ssd/000672.png", "./v5/000672.png", "./v8/000672.png", "./v8-improve/000672.png",
+                   "./origin/000600.png", "./mask/000600.png", "./faster/000600.png", "./ssd/000600.png", "./v5/000600.png", "./v8/000600.png", "./v8-improve/000600.png",
+                   "./origin/000527.png", "./mask/000527.png", "./faster/000527.png", "./ssd/000527.png", "./v5/000527.png", "./v8/000527.png", "./v8-improve/000527.png",
+                  ]
+
+    # mask_dir_path = "/home/syndra/dataset/NUDT-SIRST/masks/"
+    # origin_dir_path = "/home/syndra/dataset/NUDT-SIRST/dataset/test/images/"
+    # result_path = "./box_result/"
+    # image_files = [
+    #     origin_dir_path + "000613.png", mask_dir_path + "000613.png", result_path + "faster000613.png", result_path + "ssd000613.png", result_path + "v5000613.png", result_path + "v8000613.png", result_path + "our000613.png",
+    #     origin_dir_path + "001298.png", mask_dir_path + "001298.png", result_path + "faster001298.png", result_path + "ssd001298.png", result_path + "v5001298.png", result_path + "v8001298.png", result_path + "our001298.png",
+    #     origin_dir_path + "001292.png", mask_dir_path + "001292.png", result_path + "faster001292.png", result_path + "ssd001292.png", result_path + "v5001292.png", result_path + "v8001292.png", result_path + "our001292.png",
+    #     origin_dir_path + "001280.png", mask_dir_path + "001280.png", result_path + "faster001280.png", result_path + "ssd001280.png", result_path + "v5001280.png", result_path + "v8001280.png", result_path + "our001280.png",
+    #     origin_dir_path + "001250.png", mask_dir_path + "001250.png", result_path + "faster001250.png", result_path + "ssd001250.png", result_path + "v5001250.png", result_path + "v8001250.png", result_path + "our001250.png",
+    #     origin_dir_path + "000489.png", mask_dir_path + "000489.png", result_path + "faster000489.png", result_path + "ssd000489.png", result_path + "v5000489.png", result_path + "v8000489.png", result_path + "our000489.png",
+    # ]
+    # # 添加文本
+    # text_labels = ["Baseline", "Ground Truth", "Faster-Rcnn", "SSD", "Yolov5s", "Yolov8s", "Our Method"]
+    text_labels = ["Baseline", "Ground Truth", "Faster-RCNN", "SSD", "Yolov5s", "Yolov8s", "Our Method"]
 
     # 调用拼接函数
     stitcher.func(*image_files, text_list=text_labels, output_path="output_grid_image.png")
