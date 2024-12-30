@@ -9,7 +9,7 @@ dir_path = "/home/syndra/DL/yolov8/ultralytics/run/train/"
 # alpha_ciou = "exp39/results.csv"
 # alpha_eiou = "exp40/results.csv"
 # alpha_siou = "exp41/results.csv"
-alpha_wiou = "exp51/results.csv"
+alpha_wiou = "exp32/results.csv"
 
 
 try:
@@ -55,7 +55,7 @@ def plot_curve(datas, x_column, y_columns, title, xlabel, ylabel):
                 # y_smooth = polynomial(x_smooth)
                 # plt.plot(x_smooth, y_smooth, label=y_column+str(i))
 
-                plt.plot(data[x_column], data[y_column], label=y_column+str(i))
+                plt.plot(data[x_column], data[y_column])
             else:
                 print(f"列 {y_column} 不在文件中，跳过绘制。")
     plt.title(title, fontsize=18, fontweight='normal', family='serif')
@@ -74,7 +74,7 @@ def plot_curve(datas, x_column, y_columns, title, xlabel, ylabel):
 datas = [data_wiou]
 labels = ['loss']
 
-plot_curve(datas, 'epoch', ['train/box_loss'], 'Box Loss', 'Epoch', 'Loss')
+plot_curve(datas, 'epoch', ['train/box_loss'], 'Loss', 'Epoch', 'Loss')
 # plot_curve(datas, 'epoch', ['val/box_loss'], 'Box Loss', 'Epoch', 'Loss')
 # plot_curve(datas, 'epoch', ['metrics/precision(B)'], 'Precision', 'Epoch', 'Value')
 # plot_curve(datas, 'epoch', ['metrics/recall(B)'], 'Precision', 'Epoch', 'Value')

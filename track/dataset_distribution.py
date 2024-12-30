@@ -5,9 +5,9 @@ import seaborn as sns
 # 设置学术风格
 sns.set_theme(style="whitegrid")
 
-categories = ['ALL', 'OC', 'FM', 'IC', 'DBC', 'TS']
-val1 = [1500, 356, 0, 133, 887, 581]
-val2 = [1500, 0, 183, 8, 1310, 950]
+categories = ['ALL', 'OC', 'FM', 'SV', 'DBC', 'LI']
+val1 = [1500, 356, 751, 433, 887, 581]
+val2 = [1500, 213, 930, 213, 1310, 950]
 
 # 创建柱状图
 fig, ax = plt.subplots(figsize=(8, 5))  # 设置图表大小
