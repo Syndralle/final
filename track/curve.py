@@ -9,7 +9,7 @@ dir_path = "/home/syndra/DL/yolov8/ultralytics/run/train/"
 # alpha_ciou = "exp39/results.csv"
 # alpha_eiou = "exp40/results.csv"
 # alpha_siou = "exp41/results.csv"
-alpha_wiou = "exp32/results.csv"
+alpha_wiou = "exp51/results.csv"
 
 
 try:
@@ -55,7 +55,7 @@ def plot_curve(datas, x_column, y_columns, title, xlabel, ylabel):
                 # y_smooth = polynomial(x_smooth)
                 # plt.plot(x_smooth, y_smooth, label=y_column+str(i))
 
-                plt.plot(data[x_column], data[y_column])
+                plt.plot(data[x_column], data[y_column], label=None)
             else:
                 print(f"列 {y_column} 不在文件中，跳过绘制。")
     plt.title(title, fontsize=18, fontweight='normal', family='serif')
